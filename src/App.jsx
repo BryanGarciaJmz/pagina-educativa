@@ -135,8 +135,8 @@ function App() {
           <ul className={`nav-menu ${isMenuOpen ? 'active' : ''}`}>
             <li><a href="#inicio">Inicio</a></li>
             <li><a href="#cursos">Cursos</a></li>
-            <li><a href="#nosotros">Nosotros</a></li>
-            <li><a href="#contacto">Contacto</a></li>
+            <li><a href="#about">¿Por qué Pixel Academy?</a></li>
+            <li><a href="#inspiracion">Inspiración</a></li>
           </ul>
           <div className="nav-actions">
             <button className="login-btn" onClick={openLoginModal}>
@@ -211,7 +211,7 @@ function App() {
         <div className="container">
           <div className="about-content">
             <div className="about-text">
-              <h2>¿Por qué elegir EduLearn?</h2>
+              <h2>¿Por qué elegir Pixel Academy?</h2>
               <p>
                 Somos una plataforma educativa comprometida con tu crecimiento profesional. 
                 Ofrecemos cursos de alta calidad impartidos por expertos de la industria.
@@ -243,7 +243,7 @@ function App() {
       </section>
 
       {/* Inspiration Section */}
-      <section className="inspiration">
+      <section id="inspiracion" className="inspiration">
         <div className="container">
           <div className="section-header">
             <h2>Música para Inspirarte</h2>
@@ -287,45 +287,9 @@ function App() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer id="contacto" className="footer">
+      {/* Simple Footer */}
+      <footer className="footer">
         <div className="container">
-          <div className="footer-content">
-            <div className="footer-section">
-              <h3>Pixel Academy</h3>
-              <p>Transformando vidas a través de la educación online de calidad.</p>
-              <div className="social-links">
-                <a href="#" className="social-link">📘</a>
-                <a href="#" className="social-link">🐦</a>
-                <a href="#" className="social-link">📷</a>
-                <a href="#" className="social-link">💼</a>
-              </div>
-            </div>
-            <div className="footer-section">
-              <h4>Enlaces</h4>
-              <ul>
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#cursos">Cursos</a></li>
-                <li><a href="#nosotros">Nosotros</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-              </ul>
-            </div>
-            <div className="footer-section">
-              <h4>Categorías</h4>
-              <ul>
-                <li><a href="#">Programación</a></li>
-                <li><a href="#">Diseño</a></li>
-                <li><a href="#">Marketing</a></li>
-                <li><a href="#">Negocios</a></li>
-              </ul>
-            </div>
-            <div className="footer-section">
-              <h4>Contacto</h4>
-              <p>📧 info@pixelacademy.com</p>
-              <p>📞 +1 (555) 123-4567</p>
-              <p>📍Jalisco, México</p>
-            </div>
-          </div>
           <div className="footer-bottom">
             <p>&copy; 2024 Pixel Academy. Todos los derechos reservados.</p>
             <div className="footer-links">
