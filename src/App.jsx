@@ -24,7 +24,6 @@ function App() {
     console.log('Inscribirse en curso:', course.title)
   }
 
-  // Datos de ejemplo para los cursos
   const courses = [
     {
       id: 1,
@@ -126,7 +125,6 @@ function App() {
 
   return (
     <div className="App">
-      {/* Header */}
       <header className="header">
         <nav className="navbar">
           <div className="nav-brand">
@@ -151,7 +149,6 @@ function App() {
         </nav>
       </header>
 
-      {/* Hero Section */}
       <section id="inicio" className="hero">
         <div className="hero-content">
           <h1>Aprende sin límites</h1>
@@ -181,7 +178,6 @@ function App() {
         </div>
       </section>
 
-      {/* Courses Section */}
       <section id="cursos" className="courses">
         <div className="container">
           <div className="section-header">
@@ -205,8 +201,6 @@ function App() {
         </div>
       </section>
 
-      {/* About Section */}
-            {/* About Section */}
       <section id="about" className="about">
         <div className="container">
           <div className="about-content">
@@ -242,7 +236,6 @@ function App() {
         </div>
       </section>
 
-      {/* Inspiration Section */}
       <section id="inspiracion" className="inspiration">
         <div className="container">
           <div className="section-header">
@@ -269,7 +262,6 @@ function App() {
         </div>
       </section>
 
-      {/* Newsletter Section */}
       <section className="newsletter">
         <div className="container">
           <div className="newsletter-content">
@@ -287,7 +279,6 @@ function App() {
         </div>
       </section>
 
-      {/* Simple Footer */}
       <footer className="footer">
         <div className="container">
           <div className="footer-bottom">
@@ -301,7 +292,6 @@ function App() {
         </div>
       </footer>
 
-      {/* Login Modal */}
       <LoginModal 
         isOpen={isLoginModalOpen} 
         onClose={closeLoginModal} 

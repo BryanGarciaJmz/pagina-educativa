@@ -12,7 +12,6 @@ function LoginModal({ isOpen, onClose }) {
   const handleSubmit = (e) => {
     e.preventDefault()
     console.log('Formulario enviado:', formData)
-    // Aquí puedes agregar la lógica de autenticación
     alert(isLogin ? '¡Inicio de sesión exitoso!' : '¡Registro exitoso!')
     onClose()
   }
