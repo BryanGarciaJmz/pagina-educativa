@@ -9,7 +9,6 @@ function CourseCard({ course, onEnroll, onViewCourse }) {
   }
 
   const handleViewCourse = () => {
-    console.log('Botón Ver Curso clickeado para curso:', course.id)
     onViewCourse(course.id)
   }
 
