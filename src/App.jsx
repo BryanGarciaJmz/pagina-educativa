@@ -4,6 +4,8 @@ import LoginModal from './components/LoginModal'
 import CourseCard from './components/CourseCard'
 import CoursePage from './components/CoursePage'
 import { coursesData } from './data/coursesData'
+import ArticleCard from './components/ArticleCard'
+import { articlesData } from './data/articlesData'
 
 function App() {
 	const [isLoginModalOpen, setIsLoginModalOpen] = useState(false)
@@ -103,6 +105,20 @@ function App() {
 					</div>
 				</div>
 			</section>
+
+					<section id="articulos" className="courses" style={{ paddingTop: 40 }}>
+						<div className="container">
+							<div className="section-header">
+								<h2>Artículos recientes</h2>
+								<p>Noticias y guías prácticas sobre programación y tecnología.</p>
+							</div>
+							<div className="courses-grid-enhanced">
+								{articlesData.map((article) => (
+									<ArticleCard key={article.id} article={article} />
+								))}
+							</div>
+						</div>
+					</section>
 
 			<section id="inspiracion" className="newsletter">
 				<div className="container newsletter-content">

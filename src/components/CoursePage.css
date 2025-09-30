@@ -386,6 +386,46 @@
   font-size: 1.1rem;
 }
 
+.review-form {
+  background: #0b1220;
+  border: 1px solid #233052;
+  border-radius: 12px;
+  padding: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-row { display: grid; grid-template-columns: 1fr 160px; gap: 1rem; }
+.form-group { display: flex; flex-direction: column; gap: 6px; }
+.form-group label { color: #cbd5e1; font-size: 0.95rem; }
+.form-group input,
+.form-group select,
+.form-group textarea {
+  background: #0f172a;
+  color: #e2e8f0;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  padding: 10px 12px;
+  outline: none;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus { border-color: #6366f1; }
+.form-actions { margin-top: 10px; display: flex; justify-content: flex-end; }
+.submit-review-btn {
+  background: #6366f1;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.submit-review-btn:hover { background: #4f46e5; }
+
+@media (max-width: 640px) {
+  .form-row { grid-template-columns: 1fr; }
+}
+
 .review-item {
   background: #334155;
   border-radius: 12px;

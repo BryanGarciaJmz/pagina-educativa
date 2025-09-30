@@ -1,10 +1,12 @@
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import './CoursePage.css'
 import LoginModal from './LoginModal'
 
 function CoursePage({ course, onBack }) {
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false)
   const [activeTab, setActiveTab] = useState('contenido')
+  const [reviews, setReviews] = useState(() => course?.reviews_data || [])
+  const [newReview, setNewReview] = useState({ name: '', rating: 5, comment: '' })
 
   const openLoginModal = () => {
     setIsLoginModalOpen(true)
@@ -16,6 +18,19 @@ function CoursePage({ course, onBack }) {
 
   const handleEnroll = () => {
     setIsLoginModalOpen(true)
+  }
+
+  const handleSubmitReview = (e) => {
+    e.preventDefault()
+    if (!newReview.name.trim() || !newReview.comment.trim()) return
+    const review = {
+      name: newReview.name.trim(),
+      rating: Number(newReview.rating) || 5,
+      comment: newReview.comment.trim(),
+      date: new Date().toLocaleDateString('es-MX', { day: '2-digit', month: 'short', year: 'numeric' })
+    }
+    setReviews([review, ...reviews])
+    setNewReview({ name: '', rating: 5, comment: '' })
   }
 
   if (!course) {
@@ -177,12 +192,55 @@ function CoursePage({ course, onBack }) {
                     <div className="rating-large">
                       <span className="rating-number">{course.rating}</span>
                       <div className="stars-large">⭐⭐⭐⭐⭐</div>
-                      <span className="reviews-count">{course.reviews} reseñas</span>
+                      <span className="reviews-count">{reviews.length} reseñas</span>
                     </div>
                   </div>
                 </div>
+
+                <form className="review-form" onSubmit={handleSubmitReview}>
+                  <div className="form-row">
+                    <div className="form-group">
+                      <label htmlFor="rv-name">Nombre</label>
+                      <input
+                        id="rv-name"
+                        type="text"
+                        value={newReview.name}
+                        onChange={(e) => setNewReview({ ...newReview, name: e.target.value })}
+                        placeholder="Tu nombre"
+                        required
+                      />
+                    </div>
+                    <div className="form-group">
+                      <label htmlFor="rv-rating">Calificación</label>
+                      <select
+                        id="rv-rating"
+                        value={newReview.rating}
+                        onChange={(e) => setNewReview({ ...newReview, rating: e.target.value })}
+                      >
+                        {[5,4,3,2,1].map((r) => (
+                          <option key={r} value={r}>{r} ⭐</option>
+                        ))}
+                      </select>
+                    </div>
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="rv-comment">Comentario</label>
+                    <textarea
+                      id="rv-comment"
+                      rows={3}
+                      value={newReview.comment}
+                      onChange={(e) => setNewReview({ ...newReview, comment: e.target.value })}
+                      placeholder="Comparte tu experiencia con este curso"
+                      required
+                    />
+                  </div>
+                  <div className="form-actions">
+                    <button type="submit" className="submit-review-btn">Publicar reseña</button>
+                  </div>
+                </form>
+
                 <div className="reviews-list">
-                  {course.reviews_data && course.reviews_data.map((review, index) => (
+                  {reviews && reviews.map((review, index) => (
                     <div key={index} className="review-item">
                       <div className="review-header">
                         <div className="reviewer-name">{review.name}</div>
