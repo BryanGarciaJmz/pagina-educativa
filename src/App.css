@@ -5,7 +5,7 @@
 }
 
 body {
-  font-family: 'Arial', sans-serif;
+  font-family: "Arial", sans-serif;
   line-height: 1.6;
   color: #e2e8f0;
   background: #0f172a;
@@ -20,7 +20,7 @@ body {
 
 .header {
   background: #1e293b;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
   position: fixed;
   width: 100%;
   top: 0;
@@ -367,13 +367,13 @@ body {
   background: white;
   border-radius: 15px;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .course-card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
 .course-image {
@@ -405,6 +405,53 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 1.5rem;
+}
+
+.course-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.view-btn {
+  background: transparent;
+  color: #6366f1;
+  border: 2px solid #6366f1;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.view-btn:hover {
+  background: #6366f1;
+  color: white;
+  transform: translateY(-2px);
+}
+
+.enroll-btn {
+  background: #6366f1;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.enroll-btn:hover {
+  background: #5855eb;
+  transform: translateY(-2px);
 }
 
 .price {
@@ -581,7 +628,7 @@ body {
     width: 100%;
     text-align: center;
     transition: 0.3s;
-    box-shadow: 0 10px 27px rgba(0,0,0,0.3);
+    box-shadow: 0 10px 27px rgba(0, 0, 0, 0.3);
     padding: 2rem 0;
     border-top: 1px solid #334155;
   }

@@ -1,11 +1,16 @@
 import { useState } from 'react'
 import './CourseCard.css'
 
-function CourseCard({ course, onEnroll }) {
+function CourseCard({ course, onEnroll, onViewCourse }) {
   const [isHovered, setIsHovered] = useState(false)
 
   const handleEnroll = () => {
     onEnroll(course)
+  }
+
+  const handleViewCourse = () => {
+    console.log('Botón Ver Curso clickeado para curso:', course.id)
+    onViewCourse(course.id)
   }
 
   return (
@@ -68,9 +73,14 @@ function CourseCard({ course, onEnroll }) {
               <span className="rating-number">{course.rating}</span>
               <span className="rating-count">({course.reviews})</span>
             </div>
-            <button className="enroll-btn" onClick={handleEnroll}>
-              Inscribirse
-            </button>
+            <div className="action-buttons">
+              <button className="view-btn" onClick={handleViewCourse}>
+                Ver Curso
+              </button>
+              <button className="enroll-btn" onClick={handleEnroll}>
+                Inscribirse
+              </button>
+            </div>
           </div>
         </div>
       </div>
