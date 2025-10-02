@@ -147,7 +147,7 @@ function App() {
 						<div style={{ position: 'relative', paddingBottom: '56.25%', height: 0, overflow: 'hidden', borderRadius: '12px', boxShadow: '0 10px 30px rgba(0,0,0,0.3)' }}>
 							<iframe
 								title="Inspiración"
-								src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+								src="https://www.youtube.com/embed/f02mOEt11OQ?si=PxmBDrVUOhXCKTOF"
 								frameBorder="0"
 								allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
 								allowFullScreen
