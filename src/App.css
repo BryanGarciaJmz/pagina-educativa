@@ -208,6 +208,23 @@ body {
   margin: 0 auto;
 }
 
+.courses-filters {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 1rem;
+  color: #cbd5e1;
+}
+.filter-select {
+  background: #0b1220;
+  color: #e2e8f0;
+  border: 1px solid #233052;
+  border-radius: 10px;
+  padding: 10px 12px;
+  outline: none;
+}
+.filter-select:focus { border-color: #6366f1; }
+
 .courses-grid-enhanced {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -316,6 +333,66 @@ body {
   background: #d97706;
   transform: translateY(-2px);
 }
+
+/* About / Contact */
+.about-contact {
+  background: #0f172a;
+  padding: 80px 0;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.about-card, .contact-card {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+
+.about-card h3, .contact-card h3 { margin-bottom: 12px; }
+.about-card p { color: #cbd5e1; margin-bottom: 12px; }
+.about-list { list-style: none; color: #94a3b8; display: grid; gap: 8px; }
+
+.contact-form { display: grid; gap: 12px; }
+.contact-form .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.contact-form input, .contact-form textarea {
+  background: #0b1220;
+  border: 1px solid #233052;
+  color: #e2e8f0;
+  border-radius: 10px;
+  padding: 12px 14px;
+  outline: none;
+}
+.contact-form input:focus, .contact-form textarea:focus { border-color: #6366f1; }
+.send-btn {
+  justify-self: end;
+  background: #6366f1;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.send-btn:hover { background: #4f46e5; }
+
+@media (max-width: 640px) {
+  .contact-form .form-row { grid-template-columns: 1fr; }
+}
+
+.contact-list {
+  list-style: none;
+  display: grid;
+  gap: 10px;
+  color: #cbd5e1;
+  margin-bottom: 12px;
+}
+.contact-list .cl-icon { margin-right: 8px; }
 
 .social-links {
   display: flex;

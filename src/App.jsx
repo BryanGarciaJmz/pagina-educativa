@@ -8,9 +8,10 @@ import ArticleCard from './components/ArticleCard'
 import { articlesData } from './data/articlesData'
 
 function App() {
-	const [isLoginModalOpen, setIsLoginModalOpen] = useState(false)
-	const [currentView, setCurrentView] = useState('home') // 'home' | 'course'
-	const [selectedCourseId, setSelectedCourseId] = useState(null)
+		const [isLoginModalOpen, setIsLoginModalOpen] = useState(false)
+		const [currentView, setCurrentView] = useState('home') // 'home' | 'course'
+		const [selectedCourseId, setSelectedCourseId] = useState(null)
+		const [selectedCategory, setSelectedCategory] = useState('Todos')
 
 	const openLoginModal = () => setIsLoginModalOpen(true)
 	const closeLoginModal = () => setIsLoginModalOpen(false)
@@ -39,7 +40,11 @@ function App() {
 		)
 	}
 
-	const coursesList = Object.values(coursesData)
+		const coursesList = Object.values(coursesData)
+		const categories = ['Todos', ...Array.from(new Set(coursesList.map(c => c.category)))]
+		const filteredCourses = selectedCategory === 'Todos'
+			? coursesList
+			: coursesList.filter(c => c.category === selectedCategory)
 
 	return (
 		<div>
@@ -52,6 +57,7 @@ function App() {
 						<li><a href="#inicio">Inicio</a></li>
 						<li><a href="#cursos">Cursos</a></li>
 						<li><a href="#inspiracion">Inspiración</a></li>
+						<li><a href="#acerca">Acerca</a></li>
 					</ul>
 					<div className="nav-actions">
 						<button className="login-btn" onClick={openLoginModal}>Ingresar</button>
@@ -90,8 +96,21 @@ function App() {
 						<h2>Nuestros cursos</h2>
 						<p>Contenido curado para aprender haciendo. Elige tu camino y comienza hoy.</p>
 					</div>
-					<div className="courses-grid-enhanced">
-						{coursesList.map((course) => (
+								<div className="courses-filters">
+									<label htmlFor="cat-filter">Categoría</label>
+									<select
+										id="cat-filter"
+										className="filter-select"
+										value={selectedCategory}
+										onChange={(e)=> setSelectedCategory(e.target.value)}
+									>
+										{categories.map(cat => (
+											<option key={cat} value={cat}>{cat}</option>
+										))}
+									</select>
+								</div>
+								<div className="courses-grid-enhanced">
+									{filteredCourses.map((course) => (
 							<CourseCard
 								key={course.id}
 								course={course}
@@ -138,6 +157,40 @@ function App() {
 					</div>
 				</div>
 			</section>
+
+					<section id="acerca" className="about-contact">
+						<div className="container">
+							<div className="about-grid">
+								<div className="about-card">
+									<h3>¿Quiénes somos?</h3>
+									<p>
+										En Pixel Academy creemos en el aprendizaje práctico y accesible. Nuestro objetivo es ayudarte a dominar
+										habilidades digitales con cursos actualizados y proyectos reales.
+									</p>
+									<ul className="about-list">
+										<li>✔️ Contenido curado por expertos</li>
+										<li>✔️ Comunidad activa y soporte</li>
+										<li>✔️ Acceso de por vida y actualizaciones</li>
+									</ul>
+								</div>
+											<div className="contact-card">
+												<h3>Contacto</h3>
+												<ul className="contact-list">
+													<li><span className="cl-icon">✉️</span> soporte@pixelacademy.com</li>
+													<li><span className="cl-icon">📞</span> +52 55 1234 5678</li>
+													<li><span className="cl-icon">📍</span> CDMX, México (Remoto)</li>
+													<li><span className="cl-icon">🕒</span> Lun–Vie 9:00 a 18:00</li>
+												</ul>
+												<div className="social-links">
+													<a className="social-link" href="#" aria-label="Facebook">f</a>
+													<a className="social-link" href="#" aria-label="Twitter">t</a>
+													<a className="social-link" href="#" aria-label="Instagram">i</a>
+													<a className="social-link" href="#" aria-label="YouTube">▶</a>
+												</div>
+											</div>
+							</div>
+						</div>
+					</section>
 
 			<footer className="newsletter">
 				<div className="container newsletter-content">
